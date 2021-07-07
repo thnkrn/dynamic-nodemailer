@@ -1,15 +1,10 @@
 import sendEmail from "./lib/send.js"
 import { settings } from "./lib/settings.js"
+import { COVID19 } from "./lib/templates/covid19/const.js"
 
 const mailOptions = {
   from: settings.senderEmail,
-  to: settings.receiverEmail,
-  subject: "Sending Dynamic Email using Node.js",
-  text: "Mock Email!",
-  template: "mock",
-  templateVars: {
-    emailAddress: "test@gmail.com",
-  },
+  ...COVID19,
 }
 
 await sendEmail(mailOptions)
